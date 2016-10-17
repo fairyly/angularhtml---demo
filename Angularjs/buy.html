@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>angular订单管理 </title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="yhq" />
+<link rel="shortcut icon"href="images/favicon.ico"/>
+<style>
+   
+</style>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-route.min.js"></script>
+ </head>
+ 
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+      <div >
+        
+          <div ng-show="Step1IsOK!=true">
+             <table>
+                <thead>
+                  <tr>
+                    <th>选中</th>
+                    <th>ID</th>
+                    <th>名称</th>
+                    <th>商品编号</th>
+                    <th>商品图片</th>
+                    <th>购买数量</th>
+                    <th>价格</th>
+                    <th>应付</th>
+                  </tr>
+                </thead>
+                <tbody><!-- | filter:orderFilter -->
+                  <tr ng-repeat="p in productList">
+                    <td><input type="checkbox" ng-model="p.selected"/></td>
+                    <td>{{p.productId}}</td>
+                    <td>{{p.productName}}</td>
+                    <td></td>
+                    <td>{{p.productCode}}</td>
+                    <td><img src="p.logo"></td>
+                    <td><input type="text" ng-model="p.buyAmount"/></td>
+                    <td><b>{{p.pretailPrice}}</b><span>{{p.oldPrice}}</span></td>
+                    <td>{{p.payment}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div ng-show="Step1IsOK==true">
+              <ul>
+                <li ng-repeat="p in orderProductList">
+                  <b>{{p.productName}}</b><span>{{p.buyAmount}}</span><b>{{p.payment}}</b>
+                </li>
+              </ul>
+            </div>
+              <button ng-click="confirmStep1()">确认商品</button>
+         <form name="AccountInfo">
+            <ul>
+              <li><label>收货人信息：</label><input type="text" name="TrueName"  required ng-pattern="/^\w{2,5}$/" ng-model="TrueName">
+                <span ng-show="AccountInfo.TrueName.$dirty&&AccountInfo.TrueName.$invalid">请输入2-5位</span></li>
+              <li><label>手机号：</label><input type="text" name="Mobile" ng-model="Mobile"></li>
+              <li><label>QQ：</label><input type="text" name="QQ" ng-model="QQ"></li>
+              <li><label>收获地址：</label><input type="text" name="Address" ng-model="Address"></li>
+              <li>
+                <p ng-show="!Need">
+                  <input type="checkbox" name="Need" ng-model="Need">需要发票
+                </p>
+                <p ng-show="Need">
+                  <label>发票抬头：</label><input type="text" name="Address" ng-model="Address">
+                </p>
+               
+            </ul>
+         </form>
+         <button ng-click="confirmStep1()" ng-disabled="AccountInfo.$invalid" disabled="disabled">确认个人信息</button>
+
+       </div> 
+      
+    </div>
+    <script type="text/javascript">
+    	var app=angular.module("myApp",[]);
+    	app.controller("myCtrl",function($scope){
+
+          $scope.productList=[
+             {           productId:1,
+                         productName:'手机',
+                         productCode:'pool',
+                         logo:'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png',
+                         buyAmount:1,
+                         retailPrice:1500,
+                         oldPrice:1800,
+                         payment:1500,
+                         selected:true
+             },
+              {         productId:2,
+                         productName:'机',
+                         productCode:'pool',
+                         logo:'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png',
+                         buyAmount:1,
+                         retailPrice:2200,
+                         oldPrice:2800,
+                         payment:2200,
+                         selected:true
+             }
+          ];
+          $scope.Step1IsOK=false;
+          $scope.orderProductList=[];
+          $scope.confirmStep1=function(){
+            for(var i in $scope.productList){
+                var product=$scope.productList[i];
+                console.log(product);
+                if(product.selected){
+                  console.log(product);
+                  $scope.orderProductList.push(product);
+                }
+            }
+             $scope.Step1IsOK=true;
+          }
+
+          $scope.TrueName="";
+          $scope.Mobile="";
+          $scope.QQ="";
+          $scope.Address="";
+          $scope.Need=false;
+          $scope.invoice="";
+
+          $scope.Step2IsOK=false;
+          $scope.confirmStep2=function(){
+
+            $scope.Step2IsOK=true;
+          }
+    	});
+    </script>
+</body>
+</html>
