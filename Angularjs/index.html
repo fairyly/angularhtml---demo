@@ -26,18 +26,20 @@
 		<input type="txt" name="myAddress" ng-model="txt">
         <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
 		<button class="btn btn-primary" style="width:80px;height:30px" ng-click="add()">添加</button>
-
-		<div class="input-group input-group-sm">
-		  <input type="text" class="form-control" ng-model="txt">
-		  <span class="input-group-addon" ng-click="add()">添加</span>
-		</div>
+		<p class=""></p>
+		<!-- <div class="input-group input-group-sm col-md-offset-5 col-md-2">
+		  <input type="text" class="form-control col-md-3" ng-model="txtb">
+		  <span class="input-group-addon" ng-click="addb()">添加</span>
+		</div> -->
+	
+		<p class=""></p>
 		<div class="panel panel-default">
 			
 		</div>
 		<div class="row">
-		  <div class="col-lg-6">
+		  <div class="col-md-offset-5 col-md-2">
 		    <div class="input-group">
-		    	<input type="text" class="form-control col-lg-6" ng-model="tx">
+		    	<input type="text" class="form-control" ng-model="tx">
 			    <span class="input-group-btn">
 			      <button class="btn btn-primary" type="button" ng-click="ad()">添加</button>
 			    </span>
@@ -58,9 +60,12 @@
         	$scope.names=[];
    			$scope.add=function(){
        			$scope.names.push($scope.txt);
-	        }
+	        };
 	        $scope.ad=function(){
 	       		$scope.names.push($scope.tx);
+	       	};
+	       	$scope.addb=function(){
+	       		$scope.names.push($scope.txb);
 	       	}
 		});
 		// document.getElementsByClassName("list")[0].width="200px";

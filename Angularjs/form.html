@@ -23,7 +23,7 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-12">
-						<form action="" class="form-horizontal" role="form" name="myForm">
+						<form action="#" class="form-horizontal" role="form" name="myForm">
 							<div class="form-group">
 								<label for="" class="col-md-2 control-label">
 									邮箱：
@@ -86,7 +86,7 @@
 									
 								</label>
 								<div class="col-md-2">
-									<input type="submit" class="form-control"  ng-model="userLogin" value="登录" ng-disabled="myForm.userName.$dirty&&myForm.userName.$invalid || myForm.userPass.$dirty&&myForm.userPass.$invalid ">
+									<input type="submit" class="form-control" ng-model="userLogin" value="登录" ng-disabled="myForm.$invalid">
 								</div>
 							</div>
 						</form>
