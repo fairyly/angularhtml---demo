@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title></title>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
+<body>
+  
+  <div ng-app="myApp" ng-controller="myCtrl" ng-init="name='test1';sex='man'">
+    <df></df>
+    <div df></div>
+    <div class="df"></div>
+    <!-- directive:df -->
+	<!--双向数据绑定-->
+	<input type="text" ng-model="txt"/>
+    <div>{{txt}},<span ng-bind="txt"></span></div>
+    <p>{{name}}</p>
+    <h2 ng-repeat="a in sub |filter:txt|orderBy:txt">{{a| uppercase}}</h2>
+    <h2 ng-repeat="a in sub">{{a| lowercase}}</h2>
+    <h2 ng-repeat="a in subs |orderBy:'name'">{{a.name}},{{a.coutry}}</h2>
+  </div>
+  <script type="text/javascript" src="js/angular-route.js"></script>
+  <script type="text/javascript">
+         var app=angular.module("myApp",[]);
+         app.controller("myCtrl",function($scope){
+          	$scope.txt="test";
+          	$scope.sub=["Jone","Kk","Ll"];
+          	$scope.subs=[{name:'test1',coutry:'us'},{name:'test2',coutry:'us2'}];
+         });
+         app.directive("df",function(){
+         	return{
+         		restrict:"AECM",
+         		replace:true,
+         		template:"<h1>自定义指令测试</h1>"
+         	}
+         });
+  </script>
+</body>
+
+</html>

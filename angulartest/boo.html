@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="ftitAppModule">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.css"/>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/ui-bootstrap-2.0.0.min.js"></script>
+		<script type="text/javascript" src="js/angular-animate.min.js"></script>
+		<script src="js/ui-bootstrap-tpls-2.0.0.min.js "></script>
+        <title></title>
+    </head>
+<body>
+<div ng-controller="PostListController" >
+    <div style="height: 395px">
+	    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides"style="height:100%;">
+	      <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" ><!-- display:block -->
+	        <img ng-src="{{slide.image}}" style="margin:auto;">
+	        <div class="carousel-caption">
+	          <h4>Slide {{slide.id}}</h4>
+	          <p>{{slide.text}}</p>
+	        </div>
+	      </div>
+	    </div>
+	 </div>
+</div>
+<script type="text/javascript">
+angular.module('ftitAppModule',  ['ngAnimate', 'ui.bootstrap']).controller('PostListController',
+	function ($scope) {
+	// 设置轮播图图片间隔
+	$scope.myInterval = 2000;
+	// 轮播图数据初始化
+	var slides = $scope.slides = [];
+	 $scope.active = 0;
+  	var currIndex = 0;
+	// 添加轮播图源
+	
+	$scope.addSlide = function() {
+		 var newWidth = 600 + slides.length + 1;
+		slides.push({ image: 'images/1.jpg', text: '亲爱的你，情人节快乐', id:1});
+		slides.push({ image: 'images/2.jpg', text: '亲爱的快乐' ,id:2 });
+		slides.push({ image: 'images/1.jpg', text: '亲爱的你，情人节快乐' ,id:3});
+		slides.push({ image: 'images/2.jpg', text: '亲爱的快乐', id:4});
+	};
+	 for (var i = 0; i < 4; i++) {
+	    $scope.addSlide();
+	  }
+});
+</script>
+    </body>
+</html>

@@ -1,0 +1,229 @@
+
+<style type="text/css">
+.green{
+   color: green;
+}
+  /* a:hover i,a:hover span,a:active i,a:active span{
+    color: #85cd02;
+   background-color: green;
+  }*/
+  .footer_center{
+    max-width: 600px;
+    height: 40px;
+    margin: 0px auto;
+  }
+  .footer{
+    width: 100%;
+     position: fixed;
+    left: 0px;
+    bottom: 0px;
+  }
+  .footer a{
+    width: 20%;
+    display: inline-block;
+    text-decoration: none;
+    color: #ccc;
+    margin: 0px auto;
+    text-align: center;
+  }
+    input.ng-invalid{
+      color:red;
+    }
+    input.ng-valid{
+      color:blue;
+    }
+    input.ng-pristine{
+      background-color:green;
+    }
+</style>
+</head>
+<body>
+  <div class="bys" id="d1">
+    <a href="">1</a>
+    <a href="">2</a>
+    <a href="">3</a>
+    <a href="">4</a>
+    <a href="">5</a>
+  </div>
+  <script type="text/javascript">
+  var bys=document.getElementById('d1');
+  var a1=bys.getElementsByTagName('a');
+  console.log(a1[0]);
+  </script>
+  <div class="footer_center">
+            <div class="footer">
+                <a id="tishi" href="#">
+                  <span class="icon-group">
+                    
+                  </span><br/>
+                    <span>
+                        消息
+                    </span>
+                   
+                </a><a href="#">
+                <span class="icon-user">
+                    
+                  </span><br/>
+                    <span>
+                        达人
+                    </span>
+                </a><a href="#">
+                <span class="icon-th-large">
+                    
+                  </span><br/>
+                    <span>
+                        微友
+                    </span>
+                </a><a href="#">
+                <span class="icon-star-empty">
+                    
+                  </span><br/>
+                    <span>
+                        VIP
+                    </span>
+                </a><a href="#">
+                <span class="icon-user">
+                    
+                  </span><br/>
+                    <span>
+                        我
+                    </span>
+                </a>
+            </div>
+        </div>
+
+</script>
+<script type="text/javascript" src="js/angular-route.js"></script>
+<div ng-app="" ng-controller="myCtrl">
+  <div ng-include="'http.html'"></div>
+ 显示的
+ <h2>{{myUrl}}</h2>
+      
+<!-- <ul>
+  <li ng-repeat="x in names">
+    {{x}}
+  </li>
+</ul>
+   <select style="max-width:600px" ng-model="selectedSite">
+     <option ng-repeat="x in names" style="width:200px">{{x}}</option>
+   </select><br/>
+   <select>
+     <option ng-repeat="x in names">{{x}}</option>
+   </select>
+    <select ng-model="selectedName" ng-options="x for x in names">
+    </select> -->
+   <!--  <hello flao={{ctrlflo}}></hello>  -->
+    <!-- 保留 HTML: <input type="checkbox" ng-model="myVar" ng-init="myVar = true"> -->
+
+    <!-- <div ng-if="myVar">
+    <h1>Welcome</h1>
+    <p>Welcome to my home.</p>
+    <hr> -->
+
+    </div>
+   </div>    
+        <script type="text/javascript">
+        //            function myCtrl($scope){
+        //                   $scope.myUrl="www.baidu.com";
+        //            }
+         </script>
+     
+        <script>
+           //  var app=angular.module('routingDemoApp',[]);
+           //  // // console.log(app);
+           //  // // var app=angular.module("myApp",[]);
+           //    app.controller("myCtrl",["$scope",function($scope){
+           //  //   $scope.ctrlflo="测试";
+           //  // }]);
+           // app.directive("hello",function(){
+           //   return {
+           //    compile:function(scope,element,attrs){
+           //      console.log(element);
+           //     },
+           //  //       restrict : "EA",//<div r-b></div>起作用通过设置 restrict 属性值为 "A" 来设置指令只能通过 HTML 元素的属性来调用。
+           //  //       scope:{flao:"@"},
+           //  //       template : "<h1>自定义指令!{{ctrlflo}}</h1>",
+
+           //    };
+           //  });
+            // app.config(['$routeProvider', function($routeProvider){
+            //     $routeProvider
+            //     .when('/',{template:'这是首页页面'})
+            //     .when('/computers',{template:'这是电脑分类页面'})
+            //     .when('/printers',{template:'这是打印机页面'})
+            //     .otherwise({redirectTo:'/'});
+            // }]);
+
+            // var app=angular.module("routingDemoApp",[]);
+            // app.controller("myCtrl",function($scope,$http){
+            //      // $scope.myUrl=$location.absUrl();
+            //      // console.log($location.absUrl());
+            // //      $http.get("http.html").then(function(response){
+            // //            $scope.myUrl=response.data;
+            // //      });
+            // //      $http.get("http://localhost/angular/http.php").success(function(response){
+            // //            $scope.names=response.records;
+            // //      });
+            //      $scope.names = ["Google", "Runoob", "Taobao"];
+            //  });
+
+        </script>
+
+
+       <!--  <h2>AngularJS 简单应用</h2>
+      
+      <div ng-app = "mainApp" ng-controller = "CalcController">
+         <p>输入一个数字: <input type = "number" ng-model = "number" /></p>
+         <button ng-click = "square()">X<sup>2</sup></button>
+         <p>结果: {{result}}</p>
+        <div ng-include="http.html"></div>
+      </div> -->
+      
+       
+      
+      <script>
+       //   var mainApp = angular.module("mainApp", []);
+         
+       // mainApp.value("defaultInput", 5);
+       // mainApp.controller('CalcController', function($scope, CalcService, defaultInput) {
+       //      $scope.number = defaultInput;
+       //      $scope.result = CalcService.square($scope.number);
+
+       //      $scope.square = function() {
+       //         $scope.result = CalcService.square($scope.number);
+       //      }
+       //   });
+       //    //用provide可以不用这个factory
+       //   mainApp.factory('MathService', function() {
+       //      var factory = {};
+            
+       //      factory.multiply = function(a, b) {
+       //         return a * b;
+       //      }
+       //      return factory;
+       //   });
+         
+       //   mainApp.service('CalcService', function(MathService){
+       //      this.square = function(a) {
+       //         return MathService.multiply(a,a);
+       //      }
+       //   });
+         
+       //  //用上面factory可以不用provide实现
+       //   mainApp.config(function($provide) {
+       //      $provide.provider('MathService', function() {
+       //            this.$get = function() {
+       //            var factory = {};
+                  
+       //            factory.multiply = function(a, b) {
+       //               return a * b;
+       //            }
+       //            return factory;
+       //            console.log(factory);
+       //         };
+       //      });
+       //   });
+      
+      
+      </script>
+      
