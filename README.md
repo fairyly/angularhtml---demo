@@ -40,19 +40,19 @@ app.config(['$routeProvider', function($routeProvider){
 		        .otherwise({redirectTo:'/home'});
 		}]);
 ```
-在angular中，如果路由中的controller没有去使用
+在angular中，如果路由中的controller没有去使用下面这些控制器
 ```
-    app.controller('HomeCtroller',function($scope){
+    	app.controller('HomeCtroller',function($scope){
 
-		});
-		app.controller('AboutCtroller',function($scope){
+	});
+	app.controller('AboutCtroller',function($scope){
 
-		});
-		app.controller('LoginCtroller',function($scope){
+	});
+	app.controller('LoginCtroller',function($scope){
 
-		});
-		app.controller('RegCtroller',function($scope){
+	});
+	app.controller('RegCtroller',function($scope){
 
-		});
+	});
 ```
 在点击到各个路由的时候控制台都会报一个错误；加上就OK了。
