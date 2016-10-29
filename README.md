@@ -4,6 +4,8 @@
 整体使用yeoman+angular+bootstrap做的移动端单页面demo，里面用到angular路由，angular表单验证，angular轮播图以及使用swiper切换页面；  
 [点击预览demo1](https://fairyly.github.io/angularhtml---demo/app/)
 
+还有codepen上见到的两个小测试demo:[demo-1](https://fairyly.github.io/angularhtml---demo/app/test1)  [demo-2](https://fairyly.github.io/angularhtml---demo/app/test2)
+
 # study1:
 报错1：
 ```
