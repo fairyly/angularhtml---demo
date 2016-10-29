@@ -7,7 +7,7 @@
 还有codepen上见到的两个小测试demo:[demo-1](https://fairyly.github.io/angularhtml---demo/app/test1)  [demo-2](https://fairyly.github.io/angularhtml---demo/app/test2)
 
 # study1:
-报错1：
+- 报错1：
 ```
 angular.min.js:118 Error: [ng:areq] http://errors.angularjs.org/1.5.8/ng/areq?p0=HomeCtroller&p1=not%20aNaNunction%2C%20got%20undefined
     at Error (native)
@@ -61,3 +61,11 @@ app.config(['$routeProvider', function($routeProvider){
 	});
 ```
 在点击到各个路由的时候控制台都会报一个错误；加上就OK了。
+
+- 报错2  
+本地没有报错，github上报错了，**因为github上用的https,页面中用到的cdn链接却是http的**，当https去访问http的时候，控制台常出现
+
+```
+Mixed Content: The page at 'https://***.io/version/' was loaded over HTTPS, but requested an insecure stylesheet 'http://cdn.staticfile.org/***/4.5.0/css/***.min.css'. This request has been blocked; the content must be served over HTTPS.
+```
+解决方法：** 把请求的http的链接替换成https上的cdn链接，或者把文件存入本地文件夹中调用**
