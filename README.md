@@ -69,4 +69,4 @@ app.config(['$routeProvider', function($routeProvider){
 Mixed Content: The page at 'https://***.io/version/' was loaded over HTTPS, but requested an insecure stylesheet   'http://cdn.staticfile.org/***/4.5.0/css/***.min.css'.  
 This request has been blocked; the content must be served over HTTPS.
 ```
-解决方法：** 把请求的http的链接替换成https上的cdn链接，或者把文件存入本地文件夹中调用 **
+解决方法： ** 把请求的http的链接替换成https上的cdn链接，或者把文件存入本地文件夹中调用 **
