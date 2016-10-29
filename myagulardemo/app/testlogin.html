@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="styles/loginform.css">
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Poppins:400,600,700');
+</style>
+</head>
+<body>
+
+
+
+    <div id="app_wrapper">
+        <div class="container">
+            <section id="login-wrapper">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-md-offset-3">
+                        <div class="card">
+                            <button role="button" class="btn btn-white btn-fab btn-close"><i class="zmdi zmdi-close">X</i></button>
+                            <button role="button" class="btn btn-primary btn-fab btn-open"><i class="zmdi zmdi-plus">+</i></button>
+                            <div id="signup_wrapper">
+                                <header class="card-heading">
+                                    <h2 class="card-title alt-title">Register</h2>
+                                </header>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-group label-floating is-empty is-focused">
+                                            <label class="control-label white">Email</label>
+                                            <input type="email" class="form-control white" id="signup_email" autocomplete="off">
+                                        </div>
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label white">Password</label>
+                                            <input type="password" class="form-control white" id="signup_password">
+                                        </div>
+
+                                          <a href="javascript:void(0)" class="btn btn-white btn-block m-t-30">Submit</a>
+                                    </form>
+                                </div>
+                            </div>
+                            <div id="login_wrapper">
+                                <header class="card-heading">
+                                    <h2 class="card-title">Login</h2>
+                                </header>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label">Email</label>
+                                            <input type="email" class="form-control" id="login_email" autocomplete="off">
+                                        </div>
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label">Password</label>
+                                            <input type="password" class="form-control" id="login_password">
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                              <input type="checkbox"> Remember Me
+                                            </label>
+                                        </div>
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-block m-t-30">Submit</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src='//assets.codepen.io/assets/common/stopExecutionOnTimeout-02ca87916b03e6c52eed864acfc0a31a.js'></script><script src='http://creativegiant.co/dev/codepen/signup/js/material.min.js'></script>
+<script src='http://creativegiant.co/dev/codepen/signup/js/ripples.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type="text/javascript">
+	$(function() {
+	    $.material.init()
+	    $('#login-wrapper .btn-fab').click(function(e) {
+	        e.stopPropagation();
+	        $(this).parents('.card').toggleClass('active');
+	    });
+	});
+</script>
+
+
+</body>
+</html>
