@@ -1,0 +1,55 @@
+<p>This is the contact view.</p
+<div class="row">
+		<div class="col-md-12">
+			<form class="form-horizontal" role="form" name="myForm">
+				
+				
+				<div class="form-group">
+					<label for="" class="col-md-2 control-label">
+						用户名：
+					</label>
+					<div class="col-md-4">
+						<input type="text" class="form-control"  name="userName" ng-model="userName" ng-minlength="6" ng-maxlength="20"  required>
+						<span ng-show="myForm.userName.$dirty && myForm.userName.$error.required || myForm.userName.$touched&&myForm.userName.$pristine">用户名不能为空</span>
+						<span ng-show="myForm.userName.$dirty&&myForm.userName.$invalid">请输入6-20位字符</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-md-2 control-label">
+						密码：
+					</label>
+					<div class="col-md-4">
+						<input type="password" class="form-control" name="userPass" ng-model="userPass"  required>
+						<span ng-show="myForm.userPass.$dirty&&myForm.userPass.$error.required && myForm.userPass.$touched|| myForm.userPass.$touched&&myForm.userPass.$pristine">密码不能为空</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-md-2 control-label">
+						邮箱：
+					</label>
+					<div class="col-md-10">
+						<input type="email" class="form-control" name="userEmail" ng-model="userEmail" required>
+						<span ng-show="myForm.userEmail.$dirty&&myForm.userEmail.$error.required && myForm.userEmail.$touched|| myForm.userEmail.$touched&&myForm.userEmail.$pristine">邮箱不能为空</span>
+						<span ng-show="myForm.userEmail.$dirty&&myForm.userEmail.$invalid">邮箱格式不合法</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-10">
+						<div class="checkbox">
+							<label for="">
+								<input type="checkbox" ng-model="userInfo.auto">记住密码
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-md-3 control-label">
+						
+					</label>
+					<div class="col-md-2 sub">
+						<input type="submit" class="form-control"  ng-model="userLogin" value="登录" ng-disabled="myForm.userName.$dirty&&myForm.userName.$invalid || myForm.userPass.$dirty&&myForm.userPass.$invalid ||myForm.$invalid">
+					</div>
+				</div>
+			</form>
+		</div>
+</div>
