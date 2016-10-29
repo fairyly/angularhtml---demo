@@ -1,4 +1,4 @@
-# html---demo
+# angularhtml---demo
 >
 #demo1.  
 整体使用yeoman+angular+bootstrap做的移动端单页面demo，里面用到angular路由，angular表单验证，angular轮播图以及使用swiper切换页面；  
