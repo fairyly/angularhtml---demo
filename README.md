@@ -63,10 +63,10 @@ app.config(['$routeProvider', function($routeProvider){
 在点击到各个路由的时候控制台都会报一个错误；加上就OK了。
 
 - 报错2  
-本地没有报错，github上报错了，**因为github上用的https,页面中用到的cdn链接却是http的 **，当https去访问http的时候，控制台常出现
+本地没有报错，github上报错了，**因为github上用的https,页面中用到的cdn链接却是http的**，当https去访问http的时候，控制台常出现
 
 ```
 Mixed Content: The page at 'https://***.io/version/' was loaded over HTTPS, but requested an insecure stylesheet   'http://cdn.staticfile.org/***/4.5.0/css/***.min.css'.  
 This request has been blocked; the content must be served over HTTPS.
 ```
-解决方法： ** 把请求的http的链接替换成https上的cdn链接，或者把文件存入本地文件夹中调用 **
+解决方法： **把请求的http的链接替换成https上的cdn链接，或者把文件存入本地文件夹中调用**
