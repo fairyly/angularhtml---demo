@@ -1,7 +1,7 @@
 # html---demo
 >
 #demo1.  
-整体使用yeoman+angular+bootstrap做的单页面demo，里面用到angular路由，angular表单验证，angular轮播图以及使用swiper切换页面；  
+整体使用yeoman+angular+bootstrap做的移动端单页面demo，里面用到angular路由，angular表单验证，angular轮播图以及使用swiper切换页面；  
 [点击预览demo1](https://fairyly.github.io/angularhtml---demo/app/)
 
 # study1:
