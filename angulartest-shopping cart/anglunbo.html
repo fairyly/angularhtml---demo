@@ -1,0 +1,54 @@
+<!DOCTYPE html>  
+<html ng-app="myApp">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>AngularJS carousel</title>  
+    <link href="css/bootstrap.min.css" rel="stylesheet">  
+    <script src="js/angular.min.js"></script>  
+    <script src="js/angular-animate.min.js"></script>  
+    <script src="js/ui-bootstrap-2.0.0.min.js"></script>  
+    <script src="js/ui-bootstrap-tpls-2.0.0.min.js"></script>  
+</head>  
+<body>  
+    <div ng-controller="CarouselDemoCtrl">  
+        <div style="height: 305px">  
+            <carousel interval="myInterval" no-wrap="noWrapSlides">  
+                <slide ng-repeat="slide in slides" active="slide.active">  
+                    <img ng-src="{{slide.image}}" style="margin:auto;">  
+                    <div class="carousel-caption">  
+                        <h4>Nsfocus {{$index}}</h4>  
+                        <p>{{slide.text}}</p>  
+                    </div>  
+                </slide>  
+            </carousel>  
+        </div>  
+    </div>  
+    <script>  
+        angular.module('myApp', ['ui.bootstrap', 'ngAnimate']).controller('CarouselDemoCtrl', function ($scope) {  
+            $scope.myInterval = 2000;  
+            $scope.noWrapSlides = false;  
+            var slides = $scope.slides = [];  
+            $scope.addSlide = function () {  
+                var newWidth = 600 + slides.length + 1;  
+                slides.push({  
+                    image: 'images/1.jpg',  
+                    text: 'nsfocus',  
+                });  
+                slides.push({  
+                    image: 'images/2.jpg',  
+                    text: 'nsfocus',  
+                });  
+                slides.push({  
+                    image: 'images/1.jpg',  
+                    text: 'nsfocus',  
+                });  
+                slides.push({  
+                    image: 'images/2.jpg',  
+                    text: 'nsfocus',  
+                });  
+            };  
+            $scope.addSlide();  
+        });  
+    </script>  
+</body>  
+</html>  
