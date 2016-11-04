@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>列表 </title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="yhq" />
+<link rel="shortcut icon"href="images/favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<style>
+body{
+  font-family: "Microsoft Yahei";
+}
+li{list-style: none;}
+.row{
+  text-align: center;
+}
+.col{
+  margin-bottom:20px;
+}
+.col p{
+  color: #FF6813;
+}
+.col button{
+  color: #FF6813;
+  border: none;
+  border-radius: 2px;
+}
+.row img{
+  height: 100px;
+  width: 100px;
+}
+.goodsrow{
+  font-size: 0.6em;
+}
+.cart-title{
+  font-size: 0.6em;
+  text-align: center;
+}
+.del{
+  height: 30px;
+  line-height: 30px;
+  color: #ffffff;
+  background-color: #FF6813;
+}
+.cartsrow{
+  font-size: 0.6em;
+  margin-bottom: 10px;
+  margin-left: -40px;
+}
+.cartdes{
+  width: 100%;
+  text-align: center;
+  font-family: 'Microsoft Yahei';
+  text-overflow:clip;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.totalPrice{
+  text-align: right;
+  padding-right: 40px;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+.totalPrice span{
+  color: #FF6813;
+}
+.col-xs-4 {
+    width: 31.333333%;
+}
+</style>
+</head>
+ 
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+       <div class="container">
+            <div class="row" >
+              <div class="col-xs-6 col" ng-repeat="pic in goodsLists">
+                <img ng-cloak ng-src="./{{pic.goodsImg}}" alt=""/>
+                <p ng-cloak>￥ {{pic.goodsPrice}}</p>
+                <button ng-click="add(pic.goodsID)">加入购物车<span class="glyphicon glyphicon-shopping-cart"></span></button>
+              </div>
+            </div>
+
+            <div class="row goodsrow">
+              <!-- <div class="col-xs-2">商品图片</div>
+              <div class="col-xs-2">商品ID</div>
+              <div class="col-xs-2">商品名</div>
+              <div class="col-xs-2">商品数量</div>
+              <div class="col-xs-2">商品描述</div>
+              <div class="col-xs-2">商品价格</div>
+              <div class="col-xs-2" ng-click="add()">添加</div>
+              <div class="col-xs-2"></div> -->
+            </div>
+            <!-- <p class="cart-title">
+              <span>商品图片</span>
+              <span>商品ID</span>
+              <span>商品名</span>
+              <span>商品数量</span>
+              <span>商品描述</span>
+              <span></span>
+            </p> -->
+            <!-- <img ng-src="{{imgsrc}}" alt=""> -->
+            <p class="totalPrice">总价：<span>￥ {{total()}}</span></p>
+            <p></p>
+            <div></div><br>
+            <ul  calss="">
+              <li class="row cartsrow" ng-repeat="a in carsLists">
+                <div class="col-xs-4" ng-cloak><img ng-src="{{a.goodsImg}}" alt=""></div>
+                <div class="col-xs-4" ng-cloak></div>
+                <div class="col-xs-4" ng-cloak>{{a.goodsName}}</div>
+                <div class="col-xs-4" ng-cloak>X {{a.goodsNum}}</div>
+                <div class="col-xs-4" ng-cloak><p class="cartdes">{{a.goodsDes}}</p></div>
+                <div class="col-xs-4" ng-cloak>￥ {{a.goodsPrice}}</div>
+                <div class="col-xs-4 del" ng-click="remove($index)">删除</div>
+              </li>
+            </ul>
+       </div>
+    </div>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	var app=angular.module("myApp",[]);
+    	app.controller("myCtrl",function($scope){
+        $scope.goodsLists=[
+           {
+               goodsId:'g001',
+               goodsName:'bike',
+               goodsNum:2,
+               goodsDes:"星哈哈哈哈哈哈",
+               goodsPrice:195.00,
+               goodsImg:'images/goods001.jpg'
+           },
+           {
+              goodsId:'g002',
+               goodsName:'car',
+               goodsNum:2,
+               goodsDes:"七星哈哈哈哈哈哈",
+               goodsPrice:1950.00,
+               goodsImg:'images/goods002.jpg'
+           },
+           {
+              goodsId:'g005',
+               goodsName:'food',
+               goodsNum:5,
+               goodsDes:"七星哈哈哈哈哈哈",
+               goodsPrice:1950.00,
+               goodsImg:'images/goods003.jpg'
+           },
+           {
+              goodsId:'g006',
+               goodsName:'cars',
+               goodsNum:3,
+               goodsDes:"七星哈哈哈哈哈哈",
+               goodsPrice:1950.00,
+               goodsImg:'images/goods004.jpg'
+           }
+        ];
+        $scope.carsLists=[
+           {
+               goodsId:'g001',
+               goodsName:'bike',
+               goodsNum:2,
+               goodsDes:"七星哈哈哈哈哈哈",
+               goodsPrice:1950.00,
+               goodsImg:'images/goods001.jpg'
+           },
+           {
+              goodsId:'g002',
+               goodsName:'car',
+               goodsNum:2,
+               goodsDes:"七星哈哈哈哈哈哈",
+               goodsPrice:1950.00,
+               goodsImg:'images/goods002.jpg'
+           },
+           {
+              goodsId:'g005',
+               goodsName:'food',
+               goodsNum:5,
+               goodsDes:"七星哈哈哈哈哈哈",
+               goodsPrice:1950.00,
+               goodsImg:'images/goods003.jpg'
+           },
+           {
+              goodsId:'g006',
+               goodsName:'cars',
+               goodsNum:3,
+               goodsDes:"七星哈哈哈哈哈哈",
+               goodsPrice:1950.00,
+               goodsImg:'images/goods004.jpg'
+           }
+        ];
+        $scope.add=function(){
+          $scope.carsLists.push(
+            { goodsId:'g003',
+                   goodsName:'buds',
+                   goodsNum:1,
+                   goodsDes:"七星哈哈哈哈哈哈",
+                   goodsPrice:1950.00,
+                   goodsImg:'images/5.jpg'
+             }
+           );
+          console.log($scope.carsLists.length);
+        };
+        $scope.remove=function($index){
+          $scope.carsLists.splice($index,1)
+        }
+    	 //console.log($scope.lists);
+       // $scope.imgsrc='./images/1.jpg';
+       // for(var i in $scope.lists){
+       //    console.log($scope.lists[i]);
+       //  }
+
+       $scope.total = function() {
+          var total = 0;
+          angular.forEach($scope.carsLists, function(lists) {
+            total += lists.goodsNum * lists.goodsPrice;
+          })
+         
+          return total;
+        };
+    	});
+    </script>
+    <script type="text/javascript">
+      var docEl = document.documentElement,
+      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+      recalc = function() {
+          docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+      };
+      window.addEventListener(resizeEvt, recalc, false);
+      document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</body>
+</html>
